@@ -1,0 +1,112 @@
+<% include partials/_header%>   
+    
+    <div class="container">
+        <div class="form-row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Editar Tarea</h5>
+                        <form action="/tasksVF/updateTask/" method="POST">
+                            <div class="container">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="requerimiento" class="font-weight-bold">Requerimiento</label>
+                                            <input type="text" readonly name="requerimiento" id="requerimiento" placeholder="Requerimiento ID" value="<%= task.requerimiento %>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="proyecto" class="font-weight-bold">Proyecto</label>
+                                            <select readonly aria-required="true" id="proyecto" name="proyecto" class="form-control">
+                                                <option value="">Proyecto</option>
+                                                <option value="Agente Personalizado">Agente Personalizado</option>
+                                            </select>
+                                        </div>
+                                        <script>
+                                            document.getElementById('proyecto').value = "<%= task.proyecto%>";
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container">
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="descripcion" class="font-weight-bold">Descripción</label>
+                                            <textarea required name="descripcion" id="descripcion" cols="30" placeholder="Descripcion" class="form-control"><%= task.descripcion %></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="tipoTarea" class="font-weight-bold">Tipo Tarea</label>
+                                            <select required aria-required="true" id="tipoTarea" name="tipoTarea" class="form-control">
+                                                <option value="">Tipo Tarea</option>
+                                                <option value="Desarrollo">Desarrollo</option>
+                                                <option value="Analisis">Analisis</option>
+                                                <option value="Test">Test</option>
+                                            </select>
+                                        </div>
+                                        <script>
+                                            document.getElementById('tipoTarea').value = "<%= task.tipoTarea%>";
+                                        </script>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="asignadoA" class="font-weight-bold">Asignado A</label>
+                                            <select required aria-required="true" id="asignadoA" name="asignadoA" class="form-control">
+                                                <option value="">Asignado A</option>
+                                                <option value="Alfredo">Alfredo</option>
+                                                <option value="Juan Manuel">Juan Manuel</option>
+                                                <option value="OtroEquipo">OtroEquipo</option>
+                                            </select>
+                                        </div>
+                                        <script>
+                                            document.getElementById('asignadoA').value = "<%= task.asignadoA%>";
+                                        </script>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="container">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fechaPeticion" class="font-weight-bold">Fecha Petición</label>
+                                            <input type="date" id="fechaPeticion" placeholder="Fecha de Peticion" value="<%= task.fechaPeticion.getFullYear() + '/' + (task.fechaPeticion.getMonth()+1) + '/' +task.fechaPeticion.getDate() %>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fechaEntrega" class="font-weight-bold">Fecha Entrega</label>
+                                            <input type="date" id="fechaEntrega" placeholder="Fecha de Entrega" min="2019-07-01"  value="<%= task.fechaEntrega %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                                
+                            <div class="container">
+                                <div class="form-row">
+                                    <div class="col-md-2 offset-md-10">
+                                        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% include partials/_footer%> 

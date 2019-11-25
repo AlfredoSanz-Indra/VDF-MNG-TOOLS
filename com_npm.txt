@@ -1,0 +1,14 @@
+
+  npm init --yes
+  
+  npm install express
+  npm install ejs   
+  npm install morgan  
+  npm install nodemon -D
+  npm install ws
+  npm install sqlite3
+  
+  npm list -depth=0
+  npm list -g -depth=0
+
+  npm run dev
